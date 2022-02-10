@@ -8,6 +8,13 @@ let gb = 0 // Gingerbread
 let cc = 0 // Chocolate Chip
 let sugar = 0 // Sugar Sprinkle
 
+let totalQuantity = 0;
+
+function updateQuantity(displayQuantity){
+    let totalQuantity = document.querySelector('#qty-total');
+   totalQuantity.textContent = displayQuantity;
+}
+
 // selecting the element with an id of credit
 const credit = document.querySelector('#credit')
 
@@ -20,21 +27,29 @@ const credit = document.querySelector('#credit')
     //Add Gingerbread
     const gbPlusBtn = document.querySelector('#add-gb')
     gbPlusBtn.addEventListener('click', function(e) {
-    console.log(gbQuant)
+    
         gbQuant++;
+        totalQuantity++;
         const gbDisplay = document.getElementById('qty-gb');
         gbDisplay.textContent = gbQuant;
+        updateQuantity(totalQuantity);
+        
     })
     //Minus Gingerbread    
     const gbMinusBtn = document.querySelector('#minus-gb')
-    gbMinusBtn.addEventListener('click', function(e){
+    gbMinusBtn.addEventListener('click', function(){
+       
         if (gbQuant > 0){
-            console.log(gbQuant)
+            console.log('clicked')   
             gbQuant--;
+            totalQuantity--;
             const gbDisplay = document.getElementById('qty-gb');
             gbDisplay.textContent = gbQuant;
+            updateQuantity(totalQuantity);
+            
         }
     } )
+    
     //Update Quantity
     
 
@@ -48,19 +63,25 @@ const credit = document.querySelector('#credit')
     //Add Choco Chip
     const ccPlusBtn = document.querySelector('#add-cc')
     ccPlusBtn.addEventListener('click', function(e){
-    console.log(ccQuant)
+    
     ccQuant++; 
+    totalQuantity++;
     const ccDisplay = document.getElementById('qty-cc');
     ccDisplay.textContent = ccQuant;
+    updateQuantity(totalQuantity);
+        
     })
     //Minus Choco Chip
     const ccMinusBtn = document.querySelector('#minus-cc')
     ccMinusBtn.addEventListener('click', function(){
     if (ccQuant > 0){
-        console.log(ccQuant)
+        
         ccQuant--;
+        totalQuantity--;
         const ccDisplay = document.getElementById('qty-cc');
         ccDisplay.textContent = ccQuant;
+        updateQuantity(totalQuantity);
+        
     }    
     })
 
@@ -71,21 +92,32 @@ const credit = document.querySelector('#credit')
     //Add SS
     const ssPlusBtn = document.querySelector('#add-sugar')
     ssPlusBtn.addEventListener('click', function(){
-    console.log(ssQuant)
+    
     ssQuant++; 
+    totalQuantity++;
     const ssDisplay = document.getElementById('qty-sugar');
     ssDisplay.textContent = ssQuant;
+    updateQuantity(totalQuantity);
+    
     })
     //Minus SS
     const ssMinusBtn = document.querySelector('#minus-sugar')
     ssMinusBtn.addEventListener('click',function(){
     if (ssQuant > 0){
-        console.log(ssQuant)
+        
         ssQuant--
+        totalQuantity--;
         const ssDisplay = document.getElementById('qty-sugar');
         ssDisplay.textContent = ssQuant;
+        updateQuantity(totalQuantity);
+        
     }
     })
+   
+
+
+
+
 
 
 credit.textContent = `Created by ${yourName}`
